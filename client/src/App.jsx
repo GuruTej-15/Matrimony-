@@ -53,6 +53,8 @@ export default function App() {
           <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" replace />} />
           <Route path="/plans" element={<Plans />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/payments"element={user ? <Payments /> : <Navigate to="/login" />}/>
+
         </Routes>
       </Layout>
     </Router>
