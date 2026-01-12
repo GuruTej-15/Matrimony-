@@ -11,23 +11,33 @@ import Chat from './pages/Chat.jsx';
 import Plans from './pages/Plans.jsx';
 import { subscribeAuth, signOutUser } from './lib/firebase.js';
 
+import { fetchProfile } from './lib/api.js';
+
 export default function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsub = subscribeAuth((fbUser) => {
       if (fbUser) {
-        setUser({ uid: fbUser.uid, phone: fbUser.phoneNumber });
+        // ✅ STEP 2.2 – auto profile create
+        const u = {
+          uid: fbUser.uid,
+          phone: fbUser.phoneNumber,
+        };
+        setUser(u);
+        fetchProfile(); // backend me profile auto-create
       } else {
         setUser(null);
       }
     });
+
     return () => unsub();
   }, []);
 
   const handleLogout = () => {
     signOutUser();
     setUser(null);
+    window.location.href = '/';
   };
 
   return (

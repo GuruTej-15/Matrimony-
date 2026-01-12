@@ -34,7 +34,7 @@ export default function Layout({ children, user, onLogout }) {
       <main className="content">{children}</main>
       <footer className="footer">
         <div className="footer-inner">
-          <div>Jai Mala © 2026</div>
+          <div>Jai-Mala © 2026</div>
           <div className="subtle">Secure | Verified | Made for India</div>
         </div>
       </footer>
