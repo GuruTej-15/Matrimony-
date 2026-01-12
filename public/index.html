@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jai Mala - A trusted matrimonial platform connecting hearts. Find your perfect life partner with advanced search, compatibility matching, and secure messaging.">
+    <meta name="keywords" content="matrimony, marriage, wedding, life partner, matchmaking, shaadi, vivah">
+    <meta name="author" content="Jai Mala">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jai Mala - Find Your Perfect Life Partner">
+    <meta property="og:description" content="Join thousands finding their life partners on India's most trusted matrimonial platform">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <title>Jai Mala - Find Your Perfect Life Partner | Matrimonial Platform</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ffeef8 0%, #e8d5f2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '💑';
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #c44569;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #c44569;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #c44569;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .cta-buttons .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #c44569;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #c44569;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #c44569;
+            margin: 2rem 0 1rem;
+        }
+
+        /* Membership Plans */
+        .plans {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: scale(1.05);
+        }
+
+        .plan-card.featured {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .plan-card.featured h3,
+        .plan-card.featured .price {
+            color: white;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            color: #c44569;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #c44569;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-features li::before {
+            content: '✓ ';
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .plan-card.featured .plan-features li::before {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b9d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #c44569;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-item h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Jai Mala</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="/login" class="btn btn-secondary">Login</a></li>
+                <li><a href="/register" class="btn btn-primary">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Find Your Perfect Life Partner</h1>
+        <p>Join thousands of happy couples who found love on India's most trusted matrimonial platform</p>
+        <div class="cta-buttons">
+            <a href="/register" class="btn btn-primary" style="background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); color: white; font-size: 1.2rem;">Get Started Free</a>
+            <a href="#how-it-works" class="btn btn-secondary" style="color: #c44569; border-color: #c44569;">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Jai Mala?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>100% Verified Profiles</h3>
+                <p>Phone OTP authentication ensures every profile is genuine and verified</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Advanced Search</h3>
+                <p>Filter by religion, caste, education, location, profession, and more</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💝</div>
+                <h3>Smart Matchmaking</h3>
+                <p>AI-powered compatibility scoring finds your perfect match</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Private Messaging</h3>
+                <p>Connect securely with potential matches through our messaging system</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Responsive</h3>
+                <p>Access from any device - desktop, tablet, or smartphone</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Privacy Protected</h3>
+                <p>Your data is safe with enterprise-grade security and privacy controls</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2>10,000+</h2>
+                <p>Active Members</p>
+            </div>
+            <div class="stat-item">
+                <h2>5,000+</h2>
+                <p>Success Stories</p>
+            </div>
+            <div class="stat-item">
+                <h2>100+</h2>
+                <p>Daily Matches</p>
+            </div>
+            <div class="stat-item">
+                <h2>24/7</h2>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Create Profile</h3>
+                <p>Register with your phone number and create a detailed profile with photos</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Search & Match</h3>
+                <p>Use advanced filters to find compatible matches or let our AI suggest them</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Connect</h3>
+                <p>Send interests and chat with matches who interest you</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Find Love</h3>
+                <p>Take your relationship forward and find your perfect life partner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Plans -->
+    <section class="plans" id="plans">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3 class="plan-name">Free</h3>
+                <div class="price">₹0<span style="font-size: 1rem;">/month</span></div>
+                <ul class="plan-features">
+                    <li>Create profile</li>
+                    <li>5 profile views/day</li>
+                    <li>Send 3 interests/day</li>
+                    <li>Basic search</li>
+                    <li>View matches</li>
+                </ul>
+                <a href="/register" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="plan-card featured">
+                <h3 class="plan-name">Gold</h3>
+                <div class="price">₹999<span style="font-size: 1rem;">/month</span></div>
+                <ul class="plan-features">
+                    <li>Everything in Free</li>
+                    <li>Unlimited profile views</li>
+                    <li>Unlimited interests</li>
+                    <li>Advanced search filters</li>
+                    <li>View contact details</li>
+                    <li>Priority listing</li>
+                </ul>
+                <a href="/register" class="btn btn-primary">Most Popular</a>
+            </div>
+            <div class="plan-card">
+                <h3 class="plan-name">Platinum</h3>
+                <div class="price">₹1999<span style="font-size: 1rem;">/month</span></div>
+                <ul class="plan-features">
+                    <li>Everything in Gold</li>
+                    <li>Featured profile</li>
+                    <li>AI matchmaking</li>
+                    <li>Verified badge</li>
+                    <li>Personal advisor</li>
+                    <li>Top search results</li>
+                </ul>
+                <a href="/register" class="btn btn-primary">Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jai Mala</h3>
+                <p>India's most trusted matrimonial platform helping thousands find their perfect life partner.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="/terms">Terms & Conditions</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/refund">Refund Policy</a></li>
+                    <li><a href="/disclaimer">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/safety">Safety Tips</a></li>
+                    <li><a href="/success-stories">Success Stories</a></li>
+                    <li>Email: support@jaimala.com</li>
+                    <li>Phone: +91 98765 43210</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jai Mala. All rights reserved. Made with ❤️ in India</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards, steps, and plan cards
+        document.querySelectorAll('.feature-card, .step, .plan-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
