@@ -1,6 +1,26 @@
 import { useEffect, useState } from 'react';
 import { fetchPlans } from '../lib/api.js';
 
+const payNow = (plan) => {
+  const options = {
+    key: import.meta.env.VITE_RAZORPAY_KEY,
+    amount: plan === 'gold' ? 99900 : 199900, // paise me
+    currency: "INR",
+    name: "Jai Mala",
+    description: plan === 'gold' ? "Gold Plan" : "Platinum Plan",
+    handler: function (response) {
+      alert("Payment successful 🎉\nPayment ID: " + response.razorpay_payment_id);
+    },
+    theme: {
+      color: "#e11d48"
+    }
+  };
+
+  const rzp = new window.Razorpay(options);
+  rzp.open();
+};
+
+
 export default function Plans() {
   const [plans, setPlans] = useState([]);
 
@@ -27,7 +47,13 @@ export default function Plans() {
                 <li key={f}>• {f}</li>
               ))}
             </ul>
-            <button className="btn btn-primary" style={{ marginTop: '1rem' }}>Choose</button>
+            <button onClick={() => payNow('gold')}>
+                  Buy Gold
+                </button>
+
+                <button onClick={() => payNow('platinum')}>
+                Buy Platinum
+            </button>
           </div>
         ))}
         {!plans.length && <div className="card">Plans will load shortly.</div>}

@@ -6,3 +6,4 @@ client/.env
 .DS_Store
 uploads/
 *.log
+server/firebase-service-account.json.json
